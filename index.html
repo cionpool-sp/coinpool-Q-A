@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoinPool よくある質問 Q&A</title>
+
+<style>
+body{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+  background:#0f172a;
+  color:#f1f5f9;
+  line-height:1.8;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+h1{
+  text-align:center;
+  margin-bottom:30px;
+}
+details{
+  background:#1e293b;
+  border-radius:10px;
+  margin-bottom:15px;
+  padding:15px;
+}
+summary{
+  font-weight:bold;
+  cursor:pointer;
+  font-size:16px;
+}
+.answer-short{
+  margin-top:10px;
+  font-weight:bold;
+  color:#38bdf8;
+}
+.answer-detail{
+  margin-top:8px;
+  color:#cbd5e1;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>よくある質問 Q&A</h1>
+
+<details>
+<summary>Q：CoinPoolは資金を預ける仕組みですか？</summary>
+<div class="answer-short">
+A：いいえ、資金を誰かに預ける仕組みではありません。
+</div>
+<div class="answer-detail">
+CoinPoolは、分散型取引所（DEX）の仕組みを利用した運用サービスです。資金は常にご自身のウォレット内にあり、CoinPoolや運営が資金を預かることはありません。ウォレットを接続し、流動性提供を行うことで、DEX上で発生する取引手数料収益を得る仕組みとなっています。
+</div>
+</details>
+
+<details>
+<summary>Q：運営やオペレーターが勝手に出金することはありますか？</summary>
+<div class="answer-short">
+A：ありません。構造上、不可能です。
+</div>
+<div class="answer-detail">
+出金権限は、ウォレットを保有しているご本人のみに限定されています。システム上、出金先アドレスは最初に設定したウォレットに固定されており、第三者が変更したり、資金を引き出すことはできません。運営やオペレーターが出金操作を行うことは一切ありません。
+</div>
+</details>
+
+<details>
+<summary>Q：なぜ高い利回りが出るのですか？</summary>
+<div class="answer-short">
+A：DEX特有の手数料分配と、集中流動性運用を活用しているためです。
+</div>
+<div class="answer-detail">
+DEXでは、ユーザーが通貨を交換するたびに手数料が発生し、その手数料が流動性提供者に分配されます。CoinPoolでは、取引が最も活発な価格帯に資金を集中させ、自動でリバランスを行うことで、効率よく手数料を獲得できるよう設計されています。また、得られた手数料を自動的に再投資することで、複利効果を活かした運用が可能となっています。
+</div>
+</details>
+
+<details>
+<summary>Q：途中でやめることはできますか？</summary>
+<div class="answer-short">
+A：はい、いつでも可能です。
+</div>
+<div class="answer-detail">
+ロック期間や解約手数料はなく、ご自身の判断でいつでも運用を終了できます。資金は常にウォレット内にあるため、流動性提供を解除すれば、自由に出金することができます。
+</div>
+</details>
+
+<details>
+<summary>Q：対応チェーンは何がありますか？</summary>
+<div class="answer-short">
+A：以下の主要なブロックチェーンに対応しています。
+</div>
+<div class="answer-detail">
+Ethereum、Optimism、Base、Arbitrum、BNB Chain、Solana。現在は、Uniswapを中心とした分散型取引所での運用が行われています。
+</div>
+</details>
+
+<details>
+<summary>Q：サブアカウントはどのように使用するのですか？</summary>
+<div class="answer-short">
+A：専門的な運用操作を、経験のあるオペレーターに依頼できる仕組みです。
+</div>
+<div class="answer-detail">
+集中流動性運用では、価格レンジの設定やリバランスの判断など、専門的な知識や経験が求められます。これらの運用操作のみを専用オペレーターが担当することで、利用者は難しい操作を行う必要がありません。なお、オペレーターは資金に触れることはできず、出金や資産の移動を行う権限も一切ありません。
+</div>
+</details>
+
+<details>
+<summary>Q：開発元はどこですか？</summary>
+<div class="answer-short">
+A：開発元はbacoorになります。
+</div>
+<div class="answer-detail">
+公式サイト：<br>
+<a href="https://www.bacoor.io/" target="_blank" style="color:#38bdf8;">https://www.bacoor.io/</a>
+</div>
+</details>
+
+<details>
+<summary>Q：手数料が入ってこないのですが？</summary>
+<div class="answer-short">
+A：回収時にリバランスが起きた場合や、手数料が2ドル以下の場合は翌日にパスされます。
+</div>
+<div class="answer-detail">
+手数料回収時にリバランスが起きた場合は、その後元本に手数料とともに組み込まれます。また手数料が2ドル以下の場合は翌日にパスされます。
+</div>
+</details>
+
+<details>
+<summary>Q：追加はどのようにすればいいですか？</summary>
+<div class="answer-short">
+A：メインからサブへデポジットをし、サブから流動性を追加します。
+</div>
+<div class="answer-detail">
+CoinPoolへログインし、メインからサブへ追加したいETHをデポジットしてください。サブへデポジット後、「私の流動性」から追加することができます。詳しくは動画をご確認ください。
+</div>
+</details>
+
+<details>
+<summary>Q：収益はどこから見ればいいですか？</summary>
+<div class="answer-short">
+A：収益概要と「私の流動性」から確認できます。
+</div>
+<div class="answer-detail">
+ダッシュボード内の「収益概要」および「私の流動性」ページから確認可能です。詳しくは動画をご覧ください。
+</div>
+</details>
+
+</div>
+</body>
+</html>
