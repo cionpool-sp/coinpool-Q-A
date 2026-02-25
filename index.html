@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="ja">
 <head>
@@ -20,6 +21,7 @@
       --max: 920px;
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth;}
     body{
       margin:0;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
@@ -37,7 +39,7 @@
     }
     header{
       text-align:center;
-      padding:14px 0 18px;
+      padding:14px 0 10px;
     }
     h1{
       margin:0;
@@ -50,6 +52,37 @@
       font-size:13px;
     }
 
+    /* 上部ナビ */
+    .top-nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin:14px 0 22px;
+      padding:10px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(18,28,43,.55);
+      box-shadow: var(--shadow);
+    }
+    .top-nav a{
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      background:rgba(83,182,255,.10);
+      border:1px solid rgba(83,182,255,.22);
+      color:var(--accent);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      white-space:nowrap;
+    }
+    .top-nav a:hover{
+      background:rgba(83,182,255,.22);
+      border-color: rgba(83,182,255,.35);
+      transform:translateY(-2px);
+      text-decoration:none;
+    }
+
     .category{
       margin-top:18px;
       border:1px solid var(--border);
@@ -57,6 +90,7 @@
       overflow:hidden;
       background: rgba(18,28,43,.75);
       box-shadow: var(--shadow);
+      scroll-margin-top: 18px;
     }
     .cat-head{
       display:flex;
@@ -109,9 +143,7 @@
       border-left-color: var(--accent);
     }
 
-    .qtext{
-      flex:1;
-    }
+    .qtext{flex:1;}
 
     .content{
       padding:0 14px 14px;
@@ -162,8 +194,17 @@
       <p class="sub">カテゴリ別にまとめています（初心者向け → 操作 → トラブル → セキュリティ）</p>
     </header>
 
+    <!-- 上部：カテゴリ見出しナビ -->
+    <nav class="top-nav" aria-label="カテゴリ一覧">
+      <a href="#beginner">初心者向け</a>
+      <a href="#operation">操作・運用</a>
+      <a href="#trouble">トラブル</a>
+      <a href="#security">セキュリティ</a>
+      <a href="#videos">操作動画</a>
+    </nav>
+
     <!-- 初心者向け -->
-    <section class="category" aria-label="初心者向け">
+    <section class="category" id="beginner" aria-label="初心者向け">
       <div class="cat-head"><span class="dot"></span>初心者向け</div>
 
       <details open>
@@ -218,7 +259,7 @@
     </section>
 
     <!-- 操作・運用 -->
-    <section class="category" aria-label="操作・運用">
+    <section class="category" id="operation" aria-label="操作・運用">
       <div class="cat-head"><span class="dot"></span>操作・運用</div>
 
       <details>
@@ -303,7 +344,7 @@
     </section>
 
     <!-- トラブル -->
-    <section class="category" aria-label="トラブル・確認事項">
+    <section class="category" id="trouble" aria-label="トラブル・確認事項">
       <div class="cat-head"><span class="dot"></span>トラブル・確認事項</div>
 
       <details>
@@ -378,7 +419,7 @@
     </section>
 
     <!-- セキュリティ -->
-    <section class="category" aria-label="セキュリティ">
+    <section class="category" id="security" aria-label="セキュリティ">
       <div class="cat-head"><span class="dot"></span>セキュリティ</div>
 
       <details>
@@ -411,49 +452,52 @@
         </div>
       </details>
     </section>
-<!-- 操作動画セクション追加 -->
-<section class="category">
-  <div class="cat-head">操作動画</div>
 
-  <details>
-    <summary>▶ デポジット・出金</summary>
-    <div class="content">
-      <a href="https://youtu.be/9QZGMklnK58" target="_blank">
-        https://youtu.be/9QZGMklnK58
-      </a>
-    </div>
-  </details>
+    <!-- 操作動画 -->
+    <section class="category" id="videos" aria-label="操作動画">
+      <div class="cat-head"><span class="dot"></span>操作動画</div>
 
-  <details>
-    <summary>▶ UNISWAP上の資金確認・収益確認</summary>
-    <div class="content">
-      <a href="https://youtu.be/EMX84wyoS5M" target="_blank">
-        https://youtu.be/EMX84wyoS5M
-      </a>
-    </div>
-  </details>
+      <details>
+        <summary><span class="chev"></span><span class="qtext">デポジット・出金</span></summary>
+        <div class="content">
+          <a href="https://youtu.be/9QZGMklnK58" target="_blank" rel="noopener noreferrer">
+            https://youtu.be/9QZGMklnK58
+          </a>
+        </div>
+      </details>
 
-  <details>
-    <summary>▶ スワップ・流動性への追加方法</summary>
-    <div class="content">
-      <a href="https://youtu.be/3PRncZv4PrU?si=Hj_WFYgA-STVOjXu" target="_blank">
-        https://youtu.be/3PRncZv4PrU?si=Hj_WFYgA-STVOjXu
-      </a>
-    </div>
-  </details>
+      <details>
+        <summary><span class="chev"></span><span class="qtext">UNISWAP上の資金確認・収益確認</span></summary>
+        <div class="content">
+          <a href="https://youtu.be/EMX84wyoS5M" target="_blank" rel="noopener noreferrer">
+            https://youtu.be/EMX84wyoS5M
+          </a>
+        </div>
+      </details>
 
-  <details>
-    <summary>▶ BOTガス代の補充と管理</summary>
-    <div class="content">
-      <a href="https://youtu.be/zH7WdZCA3uY" target="_blank">
-        https://youtu.be/zH7WdZCA3uY
-      </a>
-    </div>
-  </details>
-</section>
+      <details>
+        <summary><span class="chev"></span><span class="qtext">スワップ・流動性への追加方法</span></summary>
+        <div class="content">
+          <a href="https://youtu.be/3PRncZv4PrU?si=Hj_WFYgA-STVOjXu" target="_blank" rel="noopener noreferrer">
+            https://youtu.be/3PRncZv4PrU?si=Hj_WFYgA-STVOjXu
+          </a>
+        </div>
+      </details>
+
+      <details>
+        <summary><span class="chev"></span><span class="qtext">BOTガス代の補充と管理</span></summary>
+        <div class="content">
+          <a href="https://youtu.be/zH7WdZCA3uY" target="_blank" rel="noopener noreferrer">
+            https://youtu.be/zH7WdZCA3uY
+          </a>
+        </div>
+      </details>
+    </section>
+
     <footer>
       © CoinPool / Q&amp;A
     </footer>
   </div>
 </body>
 </html>
+```
