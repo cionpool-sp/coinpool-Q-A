@@ -53,35 +53,44 @@
     }
 
     /* 上部ナビ */
-    .top-nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:center;
-      margin:14px 0 22px;
-      padding:10px 10px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background:rgba(18,28,43,.55);
-      box-shadow: var(--shadow);
-    }
-    .top-nav a{
-      padding:8px 14px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
-      background:rgba(83,182,255,.10);
-      border:1px solid rgba(83,182,255,.22);
-      color:var(--accent);
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
-      white-space:nowrap;
-    }
-    .top-nav a:hover{
-      background:rgba(83,182,255,.22);
-      border-color: rgba(83,182,255,.35);
-      transform:translateY(-2px);
-      text-decoration:none;
-    }
+    /* ===== スマート横スクロールナビ ===== */
+
+.top-nav{
+  margin:18px 0 26px;
+  overflow:hidden;
+}
+
+.nav-scroll{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:6px 4px;
+  scrollbar-width:none;
+}
+
+.nav-scroll::-webkit-scrollbar{
+  display:none;
+}
+
+.nav-scroll a{
+  flex:0 0 auto;
+  padding:8px 18px;
+  font-size:13px;
+  font-weight:600;
+  border-radius:8px;
+  background:rgba(83,182,255,.08);
+  border:1px solid rgba(83,182,255,.25);
+  color:var(--accent);
+  transition:.2s ease;
+  white-space:nowrap;
+}
+
+.nav-scroll a:hover{
+  background:rgba(83,182,255,.18);
+  border-color:rgba(83,182,255,.45);
+  transform:translateY(-2px);
+  text-decoration:none;
+}
 
     .category{
       margin-top:18px;
@@ -191,17 +200,19 @@
   <div class="wrap">
     <header>
       <h1>よくある質問 Q&amp;A</h1>
-      <p class="sub">カテゴリ別にまとめています（初心者向け → 操作 → トラブル → セキュリティ）</p>
+      <p class="sub"></p>
     </header>
 
     <!-- 上部：カテゴリ見出しナビ -->
     <nav class="top-nav" aria-label="カテゴリ一覧">
-      <a href="#beginner">初心者向け</a>
-      <a href="#operation">操作・運用</a>
-      <a href="#trouble">トラブル</a>
-      <a href="#security">セキュリティ</a>
-      <a href="#videos">操作動画</a>
-    </nav>
+  <div class="nav-scroll">
+    <a href="#beginner">初心者向け</a>
+    <a href="#operation">操作・運用</a>
+    <a href="#trouble">トラブル</a>
+    <a href="#security">セキュリティ</a>
+    <a href="#videos">操作動画</a>
+  </div>
+</nav>
 
     <!-- 初心者向け -->
     <section class="category" id="beginner" aria-label="初心者向け">
