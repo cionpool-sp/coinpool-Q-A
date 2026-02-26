@@ -18,6 +18,10 @@
       --shadow: 0 10px 28px rgba(0,0,0,.35);
       --radius:14px;
       --max: 920px;
+
+      /* ナビ用カラー */
+      --warn:#ff5a6a;     /* 注意喚起（赤系） */
+      --video:#66ffd1;    /* 操作動画（別色：ミント系） */
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;}
@@ -51,46 +55,78 @@
       font-size:13px;
     }
 
-    /* 上部ナビ */
-    /* ===== スマート横スクロールナビ ===== */
+    /* ===== 上部：固定表示ナビ（6項目） ===== */
+    .top-nav{
+      margin:16px 0 22px;
+      padding:10px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:rgba(18,28,43,.55);
+      box-shadow: var(--shadow);
+    }
+    .nav-grid{
+      display:grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap:10px;
+    }
+    .nav-grid a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 10px;
+      border-radius:12px;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.2px;
+      white-space:nowrap;
+      text-decoration:none;
+      border:1px solid rgba(83,182,255,.22);
+      background:rgba(83,182,255,.10);
+      color:var(--accent);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, filter .18s ease;
+      min-height:40px;
+    }
+    .nav-grid a:hover{
+      transform:translateY(-2px);
+      background:rgba(83,182,255,.18);
+      border-color:rgba(83,182,255,.35);
+    }
 
-.top-nav{
-  margin:18px 0 26px;
-  overflow:hidden;
-}
+    /* 注意喚起（赤系） */
+    .nav-grid a.nav-warn{
+      color:var(--warn);
+      border-color:rgba(255,90,106,.35);
+      background:rgba(255,90,106,.10);
+    }
+    .nav-grid a.nav-warn:hover{
+      background:rgba(255,90,106,.18);
+      border-color:rgba(255,90,106,.55);
+    }
 
-.nav-scroll{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  padding:6px 4px;
-  scrollbar-width:none;
-}
+    /* 操作動画（別色） */
+    .nav-grid a.nav-video{
+      color:var(--video);
+      border-color:rgba(102,255,209,.35);
+      background:rgba(102,255,209,.10);
+    }
+    .nav-grid a.nav-video:hover{
+      background:rgba(102,255,209,.18);
+      border-color:rgba(102,255,209,.55);
+    }
 
-.nav-scroll::-webkit-scrollbar{
-  display:none;
-}
+    /* スマホでも「6項目固定表示」：2行×3列 */
+    @media (max-width: 720px){
+      .nav-grid{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .nav-grid a{
+        font-size:12px;
+        padding:10px 8px;
+        border-radius:12px;
+      }
+    }
 
-.nav-scroll a{
-  flex:0 0 auto;
-  padding:8px 18px;
-  font-size:13px;
-  font-weight:600;
-  border-radius:8px;
-  background:rgba(83,182,255,.08);
-  border:1px solid rgba(83,182,255,.25);
-  color:var(--accent);
-  transition:.2s ease;
-  white-space:nowrap;
-}
-
-.nav-scroll a:hover{
-  background:rgba(83,182,255,.18);
-  border-color:rgba(83,182,255,.45);
-  transform:translateY(-2px);
-  text-decoration:none;
-}
-
+    /* セクション */
     .category{
       margin-top:18px;
       border:1px solid var(--border);
@@ -107,8 +143,11 @@
       padding:14px 14px;
       background: linear-gradient(180deg, rgba(83,182,255,.12), rgba(83,182,255,0));
       border-bottom:1px solid var(--border);
-      font-weight:700;
+      font-weight:900;
       font-size:15px;
+
+      /* ナビと同系にできるように */
+      color: var(--text);
     }
     .dot{
       width:10px; height:10px; border-radius:999px;
@@ -116,6 +155,13 @@
       box-shadow: 0 0 0 3px rgba(83,182,255,.15);
       flex: 0 0 auto;
     }
+
+    /* セクション別カラー（見出し/ドットをナビと同系へ） */
+    .category.warn  .cat-head{ color: var(--warn); background: linear-gradient(180deg, rgba(255,90,106,.14), rgba(255,90,106,0)); }
+    .category.warn  .dot{ background: var(--warn); box-shadow: 0 0 0 3px rgba(255,90,106,.18); }
+
+    .category.video .cat-head{ color: var(--video); background: linear-gradient(180deg, rgba(102,255,209,.14), rgba(102,255,209,0)); }
+    .category.video .dot{ background: var(--video); box-shadow: 0 0 0 3px rgba(102,255,209,.18); }
 
     details{
       background: rgba(15,24,38,.55);
@@ -130,7 +176,7 @@
       align-items:flex-start;
       gap:10px;
       user-select:none;
-      font-weight:700;
+      font-weight:800;
       font-size:14px;
     }
     summary::-webkit-details-marker{display:none;}
@@ -151,6 +197,10 @@
       border-left-color: var(--accent);
     }
 
+    /* 注意喚起/動画セクションは開いた時の矢印色も同系に */
+    .category.warn details[open] .chev{ border-left-color: var(--warn); }
+    .category.video details[open] .chev{ border-left-color: var(--video); }
+
     .qtext{flex:1;}
 
     .content{
@@ -168,7 +218,7 @@
     }
     .label{
       display:inline-block;
-      font-weight:800;
+      font-weight:900;
       letter-spacing:.2px;
       margin-right:6px;
     }
@@ -177,13 +227,30 @@
     .short{
       margin:6px 0 8px;
       color: var(--accent);
-      font-weight:800;
+      font-weight:900;
       font-size:13px;
     }
     .desc{
       margin:0;
       color:var(--muted);
+      white-space:pre-wrap;
     }
+
+    /* 注意喚起ボックス強調 */
+    .warn-box{
+      border-color: rgba(255,90,106,.25);
+      background: rgba(255,90,106,.06);
+    }
+    .warn-box .short{
+      color: var(--warn);
+    }
+    .warn-box .label.a{
+      color: var(--warn);
+    }
+
+    /* 動画リンクは動画色に */
+    .category.video a{ color: var(--video); }
+
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
     footer{
@@ -199,19 +266,58 @@
   <div class="wrap">
     <header>
       <h1>よくある質問 Q&amp;A</h1>
-      <p class="sub"></p>
+      <p class="sub">カテゴリ別にまとめています（注意喚起 → 初心者向け → 操作 → トラブル → セキュリティ → 操作動画）</p>
     </header>
 
-    <!-- 上部：カテゴリ見出しナビ -->
+    <!-- 上部：6項目固定表示ナビ -->
     <nav class="top-nav" aria-label="カテゴリ一覧">
-  <div class="nav-scroll">
-    <a href="#beginner">初心者向け</a>
-    <a href="#operation">操作・運用</a>
-    <a href="#trouble">トラブル</a>
-    <a href="#security">セキュリティ</a>
-    <a href="#videos">操作動画</a>
-  </div>
-</nav>
+      <div class="nav-grid">
+        <a class="nav-warn" href="#warn">注意喚起（必読）</a>
+        <a href="#beginner">初心者向け</a>
+        <a href="#operation">操作・運用</a>
+        <a href="#trouble">トラブル</a>
+        <a href="#security">セキュリティ</a>
+        <a class="nav-video" href="#videos">操作動画</a>
+      </div>
+    </nav>
+
+    <!-- 注意喚起（必読） -->
+    <section class="category warn" id="warn" aria-label="注意喚起（必読）">
+      <div class="cat-head"><span class="dot"></span>注意喚起（必読）</div>
+
+      <details open>
+        <summary><span class="chev"></span><span class="qtext">【重要】不審なトークンに関する注意喚起</span></summary>
+        <div class="content">
+          <div class="qa warn-box">
+            <div class="short"><span class="label a">A：</span>身に覚えのないトークンは「触らない・承認しない・スワップしない」を徹底してください。</div>
+            <p class="desc">現在、コインプール上において、身に覚えのない不審なトークン（いわゆるスキャムトークン）が表示される事例が確認されています。
+
+■絶対に行わないでください
+・承認（Approve）
+・スワップ
+・リンクのクリック
+・詳細確認のための接続操作
+
+不審なトークンを承認してしまうと、ウォレット資産へのアクセス権を与えてしまう可能性があり、ハッキング被害につながるリスクがあります。
+
+表示されているだけでは原則問題ありません。
+危険なのは「操作した場合」です。
+
+■現在の対応について
+運営側で順次、不審トークンの表示削除対応を進めております。
+該当トークンについては、触らずそのままお待ちください。
+
+■今後について
+今後も、身に覚えのないトークンが送付・表示された場合は、
+必ず「触らない」「承認しない」「スワップしない」を徹底してください。
+
+メインウォレット、サブアドレスを問わず同様です。
+
+安全確保のため、今一度ウォレット管理の徹底をお願いいたします。</p>
+          </div>
+        </div>
+      </details>
+    </section>
 
     <!-- 初心者向け -->
     <section class="category" id="beginner" aria-label="初心者向け">
@@ -351,6 +457,27 @@
           </div>
         </div>
       </details>
+
+      <!-- ✅ 追加：携帯ログインQ&A -->
+      <details>
+        <summary><span class="chev"></span><span class="qtext">Q：携帯からログインしたいが方法が分からない</span></summary>
+        <div class="content">
+          <div class="qa">
+            <div class="short"><span class="label a">A：</span>モバイル（スマホ、タブレット）は、下記手順で操作をお願い致します。</div>
+            <p class="desc">【操作手順】
+
+①下記モバイル版専用リンクを外部ブラウザ（safari、chrome）に貼り付けてください。
+https://mobile.coinpool.app/
+②貼り付け後→ウォレット接続
+③allwallet　選択
+④metamask選択→接続
+⑤coinpoolに戻り同意
+⑥metamaskで確定
+⑦coinpoolに戻る
+これで完了です。</p>
+          </div>
+        </div>
+      </details>
     </section>
 
     <!-- トラブル -->
@@ -464,7 +591,7 @@
     </section>
 
     <!-- 操作動画 -->
-    <section class="category" id="videos" aria-label="操作動画">
+    <section class="category video" id="videos" aria-label="操作動画">
       <div class="cat-head"><span class="dot"></span>操作動画</div>
 
       <details>
