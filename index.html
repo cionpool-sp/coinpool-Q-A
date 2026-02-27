@@ -1,323 +1,211 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CoinPool よくある質問 Q&A</title>
-  <meta name="description" content="CoinPool よくある質問（Q&A）" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CoinPool よくある質問 Q&A</title>
 
-  <style>
-    :root{
-      --bg:#0b1320;
-      --panel:#121c2b;
-      --panel2:#0f1826;
-      --text:#eaf0f7;
-      --muted:#b7c4d6;
-      --accent:#53b6ff;
-      --border:rgba(255,255,255,.08);
-      --shadow: 0 10px 28px rgba(0,0,0,.35);
-      --radius:14px;
-      --max: 920px;
+<style>
+:root{
+  --bg:#0b1320;
+  --panel:#121c2b;
+  --panel2:#0f1826;
+  --text:#eaf0f7;
+  --muted:#b7c4d6;
+  --accent:#53b6ff;
+  --border:rgba(255,255,255,.08);
+  --shadow:0 10px 28px rgba(0,0,0,.35);
+  --radius:14px;
+  --max:920px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 520px at 20% 0%, rgba(83,182,255,.16), rgba(83,182,255,0) 60%),
+    var(--bg);
+  line-height:1.75;
+}
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:22px 16px 60px;
+}
+header{text-align:center;padding:14px 0 10px;}
+h1{margin:0;font-size:22px;}
+.sub{margin:10px 0 0;color:var(--muted);font-size:13px;}
 
-      /* ナビ用カラー */
-      --warn:#ff5a6a;     /* 注意喚起（赤系） */
-      --video:#66ffd1;    /* 操作動画（別色：ミント系） */
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 520px at 20% 0%, rgba(83,182,255,.16), rgba(83,182,255,0) 60%),
-        radial-gradient(900px 520px at 80% 20%, rgba(92,255,212,.10), rgba(92,255,212,0) 55%),
-        var(--bg);
-      line-height:1.75;
-    }
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:22px 16px 60px;
-    }
-    header{
-      text-align:center;
-      padding:14px 0 10px;
-    }
-    h1{
-      margin:0;
-      font-size:22px;
-      letter-spacing:.3px;
-    }
-    .sub{
-      margin:10px 0 0;
-      color:var(--muted);
-      font-size:13px;
-    }
+/* ===== 上部ナビ（青統一） ===== */
+.top-nav{
+  margin:16px 0 22px;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:rgba(18,28,43,.55);
+  box-shadow:var(--shadow);
+}
+.nav-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:10px;
+}
+.nav-grid a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:none;
+  border:1px solid rgba(83,182,255,.3);
+  background:rgba(83,182,255,.1);
+  color:var(--accent);
+  transition:.2s ease;
+}
+.nav-grid a:hover{
+  transform:translateY(-2px);
+  background:rgba(83,182,255,.2);
+}
+@media(max-width:720px){
+  .nav-grid{grid-template-columns:repeat(3,1fr);}
+}
 
-    /* ===== 上部：固定表示ナビ（6項目） ===== */
-    .top-nav{
-      margin:16px 0 22px;
-      padding:10px;
-      border:1px solid var(--border);
-      border-radius:16px;
-      background:rgba(18,28,43,.55);
-      box-shadow: var(--shadow);
-    }
-    .nav-grid{
-      display:grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap:10px;
-    }
-    .nav-grid a{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 10px;
-      border-radius:12px;
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.2px;
-      white-space:nowrap;
-      text-decoration:none;
-      border:1px solid rgba(83,182,255,.22);
-      background:rgba(83,182,255,.10);
-      color:var(--accent);
-      transition: transform .18s ease, background .18s ease, border-color .18s ease, filter .18s ease;
-      min-height:40px;
-    }
-    .nav-grid a:hover{
-      transform:translateY(-2px);
-      background:rgba(83,182,255,.18);
-      border-color:rgba(83,182,255,.35);
-    }
+/* ===== セクション ===== */
+.category{
+  margin-top:18px;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:rgba(18,28,43,.75);
+  box-shadow:var(--shadow);
+}
+.cat-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px;
+  background:linear-gradient(180deg, rgba(83,182,255,.12), rgba(83,182,255,0));
+  border-bottom:1px solid var(--border);
+  font-weight:900;
+  font-size:15px;
+}
+.dot{
+  width:10px;height:10px;border-radius:999px;
+  background:var(--accent);
+  box-shadow:0 0 0 3px rgba(83,182,255,.15);
+}
 
-    /* 注意喚起（赤系） */
-    .nav-grid a.nav-warn{
-      color:var(--warn);
-      border-color:rgba(255,90,106,.35);
-      background:rgba(255,90,106,.10);
-    }
-    .nav-grid a.nav-warn:hover{
-      background:rgba(255,90,106,.18);
-      border-color:rgba(255,90,106,.55);
-    }
-
-    /* 操作動画（別色） */
-    .nav-grid a.nav-video{
-      color:var(--video);
-      border-color:rgba(102,255,209,.35);
-      background:rgba(102,255,209,.10);
-    }
-    .nav-grid a.nav-video:hover{
-      background:rgba(102,255,209,.18);
-      border-color:rgba(102,255,209,.55);
-    }
-
-    /* スマホでも「6項目固定表示」：2行×3列 */
-    @media (max-width: 720px){
-      .nav-grid{
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-      .nav-grid a{
-        font-size:12px;
-        padding:10px 8px;
-        border-radius:12px;
-      }
-    }
-
-    /* セクション */
-    .category{
-      margin-top:18px;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      overflow:hidden;
-      background: rgba(18,28,43,.75);
-      box-shadow: var(--shadow);
-      scroll-margin-top: 18px;
-    }
-    .cat-head{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:14px 14px;
-      background: linear-gradient(180deg, rgba(83,182,255,.12), rgba(83,182,255,0));
-      border-bottom:1px solid var(--border);
-      font-weight:900;
-      font-size:15px;
-
-      /* ナビと同系にできるように */
-      color: var(--text);
-    }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(83,182,255,.15);
-      flex: 0 0 auto;
-    }
-
-    /* セクション別カラー（見出し/ドットをナビと同系へ） */
-    .category.warn  .cat-head{ color: var(--warn); background: linear-gradient(180deg, rgba(255,90,106,.14), rgba(255,90,106,0)); }
-    .category.warn  .dot{ background: var(--warn); box-shadow: 0 0 0 3px rgba(255,90,106,.18); }
-
-    .category.video .cat-head{ color: var(--video); background: linear-gradient(180deg, rgba(102,255,209,.14), rgba(102,255,209,0)); }
-    .category.video .dot{ background: var(--video); box-shadow: 0 0 0 3px rgba(102,255,209,.18); }
-
-    details{
-      background: rgba(15,24,38,.55);
-      border-bottom:1px solid var(--border);
-    }
-    details:last-child{border-bottom:none;}
-    summary{
-      list-style:none;
-      cursor:pointer;
-      padding:14px 14px;
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      user-select:none;
-      font-weight:800;
-      font-size:14px;
-    }
-    summary::-webkit-details-marker{display:none;}
-
-    .chev{
-      margin-top:3px;
-      width:0; height:0;
-      border-left:6px solid var(--muted);
-      border-top:5px solid transparent;
-      border-bottom:5px solid transparent;
-      opacity:.9;
-      transition: transform .18s ease, opacity .18s ease;
-      flex: 0 0 auto;
-    }
-    details[open] .chev{
-      transform: rotate(90deg);
-      opacity:1;
-      border-left-color: var(--accent);
-    }
-
-    /* 注意喚起/動画セクションは開いた時の矢印色も同系に */
-    .category.warn details[open] .chev{ border-left-color: var(--warn); }
-    .category.video details[open] .chev{ border-left-color: var(--video); }
-
-    .qtext{flex:1;}
-
-    .content{
-      padding:0 14px 14px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .qa{
-      background: rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:12px;
-      padding:12px 12px;
-      margin-top:10px;
-    }
-    .label{
-      display:inline-block;
-      font-weight:900;
-      letter-spacing:.2px;
-      margin-right:6px;
-    }
-    .label.q{color:var(--text);}
-    .label.a{color:var(--accent);}
-    .short{
-      margin:6px 0 8px;
-      color: var(--accent);
-      font-weight:900;
-      font-size:13px;
-    }
-    .desc{
-      margin:0;
-      color:var(--muted);
-      white-space:pre-wrap;
-    }
-
-    /* 注意喚起ボックス強調 */
-    .warn-box{
-      border-color: rgba(255,90,106,.25);
-      background: rgba(255,90,106,.06);
-    }
-    .warn-box .short{
-      color: var(--warn);
-    }
-    .warn-box .label.a{
-      color: var(--warn);
-    }
-
-    /* 動画リンクは動画色に */
-    .category.video a{ color: var(--video); }
-
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    footer{
-      text-align:center;
-      color:rgba(183,196,214,.75);
-      font-size:12px;
-      margin-top:18px;
-    }
-  </style>
+/* ===== アコーディオン ===== */
+details{
+  background:rgba(15,24,38,.55);
+  border-bottom:1px solid var(--border);
+}
+details:last-child{border-bottom:none;}
+summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px;
+  display:flex;
+  gap:10px;
+  font-weight:800;
+  font-size:14px;
+}
+summary::-webkit-details-marker{display:none;}
+.chev{
+  margin-top:4px;
+  width:0;height:0;
+  border-left:6px solid var(--muted);
+  border-top:5px solid transparent;
+  border-bottom:5px solid transparent;
+  transition:.2s;
+}
+details[open] .chev{
+  transform:rotate(90deg);
+  border-left-color:var(--accent);
+}
+.content{
+  padding:0 14px 14px;
+  color:var(--muted);
+  font-size:13px;
+}
+.qa{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;
+  padding:12px;
+  margin-top:10px;
+}
+.short{
+  margin:6px 0 8px;
+  color:var(--accent);
+  font-weight:900;
+}
+footer{
+  text-align:center;
+  font-size:12px;
+  color:rgba(183,196,214,.75);
+  margin-top:18px;
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <h1>よくある質問 Q&amp;A</h1>
-      <p class="sub"></p>
-    </header>
+<div class="wrap">
 
-    <!-- 上部：6項目固定表示ナビ -->
-    <nav class="top-nav" aria-label="カテゴリ一覧">
-      <div class="nav-grid">
-        <a class="nav-warn" href="#warn">注意喚起（必読）</a>
-        <a href="#beginner">初心者向け</a>
-        <a href="#operation">操作・運用</a>
-        <a href="#trouble">トラブル</a>
-        <a href="#security">セキュリティ</a>
-        <a class="nav-video" href="#videos">操作動画</a>
-      </div>
-    </nav>
+<header>
+<h1>よくある質問 Q&A</h1>
+<p class="sub">カテゴリ別にまとめています</p>
+</header>
 
-    <!-- 注意喚起（必読） -->
-    <section class="category warn" id="warn" aria-label="注意喚起（必読）">
-      <div class="cat-head"><span class="dot"></span>注意喚起（必読）</div>
+<nav class="top-nav">
+  <div class="nav-grid">
+    <a href="#warn">注意喚起（必読）</a>
+    <a href="#beginner">初心者向け</a>
+    <a href="#operation">操作・運用</a>
+    <a href="#trouble">トラブル</a>
+    <a href="#security">セキュリティ</a>
+    <a href="#videos">操作動画</a>
+  </div>
+</nav>
 
-      <details>
-        <summary><span class="chev"></span><span class="qtext">【重要】不審なトークンに関する注意喚起</span></summary>
-        <div class="content">
-          <div class="qa warn-box">
-            <div class="short"><span class="label a"></span>身に覚えのないトークンは「触らない・承認しない・スワップしない」を徹底してください。</div>
-            <p class="desc">現在、コインプール上において、身に覚えのない不審なトークン（いわゆるスキャムトークン）が表示される事例が確認されています。
+<!-- 注意喚起 -->
+<section class="category" id="warn">
+<div class="cat-head"><span class="dot"></span>注意喚起（必読）</div>
 
-■絶対に行わないでください
-・承認（Approve）
-・スワップ
-・リンクのクリック
-・詳細確認のための接続操作
+<details>
+<summary><span class="chev"></span>【重要】不審なトークンに関する注意喚起</summary>
+<div class="content">
+<div class="qa">
+<div class="short">A：身に覚えのないトークンは「触らない・承認しない・スワップしない」を徹底してください。</div>
+<p>
+現在、コインプール上において、身に覚えのない不審なトークン（いわゆるスキャムトークン）が表示される事例が確認されています。<br><br>
 
-不審なトークンを承認してしまうと、ウォレット資産へのアクセス権を与えてしまう可能性があり、ハッキング被害につながるリスクがあります。
+■絶対に行わないでください<br>
+・承認（Approve）<br>
+・スワップ<br>
+・リンクのクリック<br>
+・詳細確認のための接続操作<br><br>
 
-表示されているだけでは原則問題ありません。
-危険なのは「操作した場合」です。
+表示されているだけでは原則問題ありません。<br>
+危険なのは「操作した場合」です。<br><br>
 
-■現在の対応について
-運営側で順次、不審トークンの表示削除対応を進めております。
-該当トークンについては、触らずそのままお待ちください。
+今後も、身に覚えのないトークンが送付・表示された場合は、必ず「触らない」「承認しない」「スワップしない」を徹底してください。<br><br>
 
-■今後について
-今後も、身に覚えのないトークンが送付・表示された場合は、
-必ず「触らない」「承認しない」「スワップしない」を徹底してください。
+メインウォレット、サブアドレスを問わず同様です。<br><br>
 
-メインウォレット、サブアドレスを問わず同様です。
-
-安全確保のため、今一度ウォレット管理の徹底をお願いいたします。</p>
-          </div>
-        </div>
-      </details>
-    </section>
+安全確保のため、今一度ウォレット管理の徹底をお願いいたします。  
+</p>
+</div>
+</div>
+</details>
+</section>
+</div>
+</body>
+</html>
 
     <!-- 初心者向け -->
     <section class="category" id="beginner" aria-label="初心者向け">
