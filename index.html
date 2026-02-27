@@ -1,520 +1,291 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CoinPool よくある質問 Q&A</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CoinPool よくある質問 Q&A</title>
+  <meta name="description" content="CoinPool よくある質問（Q&A）" />
 
-<style>
-:root{
-  --bg:#0b1320;
-  --panel:#121c2b;
-  --panel2:#0f1826;
-  --text:#eaf0f7;
-  --muted:#b7c4d6;
-  --accent:#53b6ff;
-  --border:rgba(255,255,255,.08);
-  --shadow:0 10px 28px rgba(0,0,0,.35);
-  --radius:14px;
-  --max:920px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;}
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(900px 520px at 20% 0%, rgba(83,182,255,.16), rgba(83,182,255,0) 60%),
-    var(--bg);
-  line-height:1.75;
-}
-.wrap{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:22px 16px 60px;
-}
-header{text-align:center;padding:14px 0 10px;}
-h1{margin:0;font-size:22px;}
-.sub{margin:10px 0 0;color:var(--muted);font-size:13px;}
+  <style>
+    :root{
+      --bg:#0b1320;
+      --panel:#121c2b;
+      --panel2:#0f1826;
+      --text:#eaf0f7;
+      --muted:#b7c4d6;
+      --accent:#53b6ff;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 10px 28px rgba(0,0,0,.35);
+      --radius:14px;
+      --max: 920px;
 
-/* ===== 上部ナビ（青統一） ===== */
-.top-nav{
-  margin:16px 0 22px;
-  padding:10px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  background:rgba(18,28,43,.55);
-  box-shadow:var(--shadow);
-}
-.nav-grid{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:10px;
-}
-.nav-grid a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px;
-  border-radius:12px;
-  font-size:13px;
-  font-weight:800;
-  text-decoration:none;
-  border:1px solid rgba(83,182,255,.3);
-  background:rgba(83,182,255,.1);
-  color:var(--accent);
-  transition:.2s ease;
-}
-.nav-grid a:hover{
-  transform:translateY(-2px);
-  background:rgba(83,182,255,.2);
-}
-@media(max-width:720px){
-  .nav-grid{grid-template-columns:repeat(3,1fr);}
-}
+      /* ナビ用カラー：すべて青系に統一 */
+      --warn:var(--accent);
+      --video:var(--accent);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 20% 0%, rgba(83,182,255,.16), rgba(83,182,255,0) 60%),
+        radial-gradient(900px 520px at 80% 20%, rgba(92,255,212,.10), rgba(92,255,212,0) 55%),
+        var(--bg);
+      line-height:1.75;
+    }
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:22px 16px 60px;
+    }
+    header{
+      text-align:center;
+      padding:14px 0 10px;
+    }
+    h1{
+      margin:0;
+      font-size:22px;
+      letter-spacing:.3px;
+    }
+    .sub{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
 
-/* ===== セクション ===== */
-.category{
-  margin-top:18px;
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  overflow:hidden;
-  background:rgba(18,28,43,.75);
-  box-shadow:var(--shadow);
-}
-.cat-head{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:14px;
-  background:linear-gradient(180deg, rgba(83,182,255,.12), rgba(83,182,255,0));
-  border-bottom:1px solid var(--border);
-  font-weight:900;
-  font-size:15px;
-}
-.dot{
-  width:10px;height:10px;border-radius:999px;
-  background:var(--accent);
-  box-shadow:0 0 0 3px rgba(83,182,255,.15);
-}
+    /* ===== 上部：固定表示ナビ（6項目すべて青系統一） ===== */
+    .top-nav{
+      margin:16px 0 22px;
+      padding:10px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:rgba(18,28,43,.55);
+      box-shadow: var(--shadow);
+    }
+    .nav-grid{
+      display:grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap:10px;
+    }
+    .nav-grid a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 10px;
+      border-radius:12px;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.2px;
+      white-space:nowrap;
+      text-decoration:none;
+      border:1px solid rgba(83,182,255,.22);
+      background:rgba(83,182,255,.10);
+      color:var(--accent);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, filter .18s ease;
+      min-height:40px;
+    }
+    .nav-grid a:hover{
+      transform:translateY(-2px);
+      background:rgba(83,182,255,.18);
+      border-color:rgba(83,182,255,.35);
+    }
 
-/* ===== アコーディオン ===== */
-details{
-  background:rgba(15,24,38,.55);
-  border-bottom:1px solid var(--border);
-}
-details:last-child{border-bottom:none;}
-summary{
-  list-style:none;
-  cursor:pointer;
-  padding:14px;
-  display:flex;
-  gap:10px;
-  font-weight:800;
-  font-size:14px;
-}
-summary::-webkit-details-marker{display:none;}
-.chev{
-  margin-top:4px;
-  width:0;height:0;
-  border-left:6px solid var(--muted);
-  border-top:5px solid transparent;
-  border-bottom:5px solid transparent;
-  transition:.2s;
-}
-details[open] .chev{
-  transform:rotate(90deg);
-  border-left-color:var(--accent);
-}
-.content{
-  padding:0 14px 14px;
-  color:var(--muted);
-  font-size:13px;
-}
-.qa{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:12px;
-  padding:12px;
-  margin-top:10px;
-}
-.short{
-  margin:6px 0 8px;
-  color:var(--accent);
-  font-weight:900;
-}
-footer{
-  text-align:center;
-  font-size:12px;
-  color:rgba(183,196,214,.75);
-  margin-top:18px;
-}
-</style>
+    /* スマホ表示：2行×3列 */
+    @media (max-width: 720px){
+      .nav-grid{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .nav-grid a{
+        font-size:12px;
+        padding:10px 8px;
+        border-radius:12px;
+      }
+    }
+
+    /* セクション */
+    .category{
+      margin-top:18px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      background: rgba(18,28,43,.75);
+      box-shadow: var(--shadow);
+      scroll-margin-top: 18px;
+    }
+    .cat-head{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 14px;
+      background: linear-gradient(180deg, rgba(83,182,255,.12), rgba(83,182,255,0));
+      border-bottom:1px solid var(--border);
+      font-weight:900;
+      font-size:15px;
+      color: var(--text);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(83,182,255,.15);
+      flex: 0 0 auto;
+    }
+
+    details{
+      background: rgba(15,24,38,.55);
+      border-bottom:1px solid var(--border);
+    }
+    details:last-child{border-bottom:none;}
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 14px;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      user-select:none;
+      font-weight:800;
+      font-size:14px;
+    }
+    summary::-webkit-details-marker{display:none;}
+
+    .chev{
+      margin-top:3px;
+      width:0; height:0;
+      border-left:6px solid var(--muted);
+      border-top:5px solid transparent;
+      border-bottom:5px solid transparent;
+      opacity:.9;
+      transition: transform .18s ease, opacity .18s ease;
+      flex: 0 0 auto;
+    }
+    details[open] .chev{
+      transform: rotate(90deg);
+      opacity:1;
+      border-left-color: var(--accent);
+    }
+
+    .qtext{flex:1;}
+
+    .content{
+      padding:0 14px 14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .qa{
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:12px;
+      padding:12px 12px;
+      margin-top:10px;
+    }
+    .label{
+      display:inline-block;
+      font-weight:900;
+      letter-spacing:.2px;
+      margin-right:6px;
+    }
+    .label.q{color:var(--text);}
+    .label.a{color:var(--accent);}
+    .short{
+      margin:6px 0 8px;
+      color: var(--accent);
+      font-weight:900;
+      font-size:13px;
+    }
+    .desc{
+      margin:0;
+      color:var(--muted);
+      white-space:pre-wrap;
+    }
+
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    footer{
+      text-align:center;
+      color:rgba(183,196,214,.75);
+      font-size:12px;
+      margin-top:18px;
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrap">
+  <div class="wrap">
+    <header>
+      <h1>よくある質問 Q&amp;A</h1>
+      <p class="sub">カテゴリ別にまとめています</p>
+    </header>
 
-<header>
-<h1>よくある質問 Q&A</h1>
-<p class="sub">カテゴリ別にまとめています</p>
-</header>
+    <nav class="top-nav" aria-label="カテゴリ一覧">
+      <div class="nav-grid">
+        <a href="#warn">注意喚起（必読）</a>
+        <a href="#beginner">初心者向け</a>
+        <a href="#operation">操作・運用</a>
+        <a href="#trouble">トラブル</a>
+        <a href="#security">セキュリティ</a>
+        <a href="#videos">操作動画</a>
+      </div>
+    </nav>
 
-<nav class="top-nav">
-  <div class="nav-grid">
-    <a href="#warn">注意喚起（必読）</a>
-    <a href="#beginner">初心者向け</a>
-    <a href="#operation">操作・運用</a>
-    <a href="#trouble">トラブル</a>
-    <a href="#security">セキュリティ</a>
-    <a href="#videos">操作動画</a>
-  </div>
-</nav>
+    <section class="category" id="warn" aria-label="注意喚起（必読）">
+      <div class="cat-head"><span class="dot"></span>注意喚起（必読）</div>
 
-<!-- 注意喚起 -->
-<section class="category" id="warn">
-<div class="cat-head"><span class="dot"></span>注意喚起（必読）</div>
+      <details open>
+        <summary><span class="chev"></span><span class="qtext">【重要】不審なトークンに関する注意喚起</span></summary>
+        <div class="content">
+          <div class="qa">
+            <div class="short"><span class="label a">A：</span>身に覚えのないトークンは「触らない・承認しない・スワップしない」を徹底してください。</div>
+            <p class="desc">現在、コインプール上において、身に覚えのない不審なトークン（いわゆるスキャムトークン）が表示される事例が確認されています。
 
-<details>
-<summary><span class="chev"></span>【重要】不審なトークンに関する注意喚起</summary>
-<div class="content">
-<div class="qa">
-<div class="short">A：身に覚えのないトークンは「触らない・承認しない・スワップしない」を徹底してください。</div>
-<p>
-現在、コインプール上において、身に覚えのない不審なトークン（いわゆるスキャムトークン）が表示される事例が確認されています。<br><br>
+■絶対に行わないでください
+・承認（Approve）
+・スワップ
+・リンクのクリック
+・詳細確認のための接続操作
 
-■絶対に行わないでください<br>
-・承認（Approve）<br>
-・スワップ<br>
-・リンクのクリック<br>
-・詳細確認のための接続操作<br><br>
+不審なトークンを承認してしまうと、ウォレット資産へのアクセス権を与えてしまう可能性があり、ハッキング被害につながるリスクがあります。
 
-表示されているだけでは原則問題ありません。<br>
-危険なのは「操作した場合」です。<br><br>
+表示されているだけでは原則問題ありません。
+危険なのは「操作した場合」です。
 
-今後も、身に覚えのないトークンが送付・表示された場合は、必ず「触らない」「承認しない」「スワップしない」を徹底してください。<br><br>
+■現在の対応について
+運営側で順次、不審トークンの表示削除対応を進めております。
+該当トークンについては、触らずそのままお待ちください。
 
-メインウォレット、サブアドレスを問わず同様です。<br><br>
+■今後について
+今後も、身に覚えのないトークンが送付・表示された場合は、
+必ず「触らない」「承認しない」「スワップしない」を徹底してください。
 
-安全確保のため、今一度ウォレット管理の徹底をお願いいたします。  
-</p>
-</div>
-</div>
-</details>
-</section>
-</div>
-</body>
-</html>
+メインウォレット、サブアドレスを問わず同様です。
 
-    <!-- 初心者向け -->
+安全確保のため、今一度ウォレット管理の徹底をお願いいたします。</p>
+          </div>
+        </div>
+      </details>
+    </section>
+
     <section class="category" id="beginner" aria-label="初心者向け">
       <div class="cat-head"><span class="dot"></span>初心者向け</div>
-
-      <details>
+      <details open>
         <summary><span class="chev"></span><span class="qtext">Q：CoinPoolは資金を預ける仕組みですか？</span></summary>
         <div class="content">
           <div class="qa">
             <div class="short"><span class="label a">A：</span>いいえ、資金を誰かに預ける仕組みではありません。</div>
-            <p class="desc">CoinPoolは分散型取引所（DEX）の仕組みを利用した運用サービスです。資金は常にご自身のウォレット内にあり、CoinPoolや運営が資金を預かることはありません。ウォレットを接続し、流動性提供を行うことで、DEX上で発生する取引手数料収益を得る仕組みです。</p>
+            <p class="desc">CoinPoolは分散型取引所（DEX）の仕組みを利用した運用サービスです。資金は常にご自身のウォレット内にあり、CoinPoolや運営が資金を預かることはありません。</p>
           </div>
         </div>
       </details>
+      </section>
 
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：なぜ高い利回りが出るのですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>DEX特有の手数料分配と集中流動性運用を活用しているためです。</div>
-            <p class="desc">DEXでは通貨交換のたびに手数料が発生し、それが流動性提供者に分配されます。CoinPoolでは取引が活発な価格帯に資金を集中させ、自動リバランスを行うことで効率的に手数料を獲得します。さらに再投資により複利運用も可能です。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：インパーマネントロスとは何ですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>価格変動によって資産価値が目減りする可能性がある現象です。</div>
-            <p class="desc">流動性提供特有の仕組みで、価格が大きく動くとプール内の通貨比率が変動します。ただし、獲得手数料がその影響を上回ることで、トータルでのプラスを目指す運用となります。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：参加者が増えたら報酬は減りますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>直接的な影響はありません。</div>
-            <p class="desc">プール規模が拡大すると分配比率は変動しますが、取引量自体が増えれば収益も増加します。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：開始時より資金が減っています。</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>暗号資産の価格変動による影響です。</div>
-            <p class="desc">基準通貨自体の価格が下落すると、評価額が減少する場合があります。</p>
-          </div>
-        </div>
-      </details>
-    </section>
-
-    <!-- 操作・運用 -->
-    <section class="category" id="operation" aria-label="操作・運用">
-      <div class="cat-head"><span class="dot"></span>操作・運用</div>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：途中でやめることはできますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>はい、いつでも可能です。</div>
-            <p class="desc">ロック期間や解除手数料はありません。流動性提供を解除し、ご自身のウォレットへ戻すことが可能です。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：単利と複利は変更できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>変更可能です。</div>
-            <p class="desc">単利は収益を払い出し、複利は収益を再投資します。設定画面から切り替えが可能です。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：追加はどのようにすればいいですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>メインからサブへデポジットし、サブから流動性を追加します。</div>
-            <p class="desc">ログイン後、メインからサブへETHをデポジットし、「私の流動性」から追加操作を行います。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：収益はどこから見ればいいですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>「収益概要」と「私の流動性」から確認できます。</div>
-            <p class="desc">管理画面にて現在の収益状況を確認できます。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：LPは自分で組めますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>可能です。</div>
-            <p class="desc">すべての操作をご自身で行うこともできます。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：対応チェーンは何がありますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>主要なブロックチェーンに対応しています。</div>
-            <p class="desc">Ethereum、Optimism、Base、Arbitrum、BNB Chain、Solanaに対応しています。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：サブアカウントとは何ですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>運用専用のスマートコントラクトアドレスです。</div>
-            <p class="desc">サブアカウントは秘密鍵を持たないコントラクト型アドレスです。メインオーナー以外に資産移動はできない構造です。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：単利の場合、手数料はどこに入りますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>接続しているウォレットに入ります。</div>
-            <p class="desc">回収された手数料はUSDCでウォレットへ送付されます。</p>
-          </div>
-        </div>
-      </details>
-
-      <!-- ✅ 追加：携帯ログインQ&A -->
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：携帯からログインしたいが方法が分からない</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>モバイル（スマホ、タブレット）は、下記手順で操作をお願い致します。</div>
-            <p class="desc">【操作手順】
-
-①下記モバイル版専用リンクを外部ブラウザ（safari、chrome）に貼り付けてください。
-https://mobile.coinpool.app/
-②貼り付け後→ウォレット接続
-③allwallet　選択
-④metamask選択→接続
-⑤coinpoolに戻り同意
-⑥metamaskで確定
-⑦coinpoolに戻る
-これで完了です。</p>
-          </div>
-        </div>
-      </details>
-    </section>
-
-    <!-- トラブル -->
-    <section class="category" id="trouble" aria-label="トラブル・確認事項">
-      <div class="cat-head"><span class="dot"></span>トラブル・確認事項</div>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：手数料が入ってこないのですが？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>リバランスや最低金額条件の影響です。</div>
-            <p class="desc">回収時にリバランスが発生した場合は流動性へ組み込まれます。その為、ウォレットに着金する金額と開きがあります。2ドル未満の場合は翌日に繰り越されます。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：今朝の収益が少ないです。</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>相場状況やリバランスの影響です。</div>
-            <p class="desc">市場状況やレンジ外移動により日々の収益は変動します。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：リバランスはいつ起きますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>レンジ外状態が一定時間続いた場合です。</div>
-            <p class="desc">24時間監視により必要と判断されたタイミングで実行されます。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：ログインできません。</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>環境をご確認ください。</div>
-            <p class="desc">スマホの場合はSafariやChromeなどのブラウザをご利用ください。また他のチェーンが干渉していると接続できない場合があります。PCの場合は、アドレスが正しいか確認してください。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：画面に何も表示されません。</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>表示設定をご確認ください。</div>
-            <p class="desc">①右上の表示が「サブアカウント」になっているか。②チェーンが「BASE」になっているか。この2点が揃っていないと、情報が表示されません。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：スマホから操作できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>操作はできません。</div>
-            <p class="desc">スマホおよびiPad等のタブレットは「モバイル」に分類され、モバイル版では「収益概要」の確認のみで、操作はできません。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：外出先でスマホ1台で設定できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>初回設定（Zoom）の際は注意が必要です。</div>
-            <p class="desc">スマホ1台でZoom通話とウォレット操作を同時に行うことはできません。外からZoom参加される場合は、端末① Zoom用／端末② ウォレット操作用 の2台あるとスムーズです。</p>
-          </div>
-        </div>
-      </details>
-    </section>
-
-    <!-- セキュリティ -->
-    <section class="category" id="security" aria-label="セキュリティ">
-      <div class="cat-head"><span class="dot"></span>セキュリティ</div>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：運営やオペレーターが勝手に出金できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>できません。</div>
-            <p class="desc">出金先は固定されており、第三者による変更はできません。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：MetaMaskは安全ですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>ウォレット自体は安全ですが、管理が重要です。</div>
-            <p class="desc">秘密鍵やシードフレーズの管理を徹底してください。偽サイトに接続したり、秘密鍵を他人に教えると資産を失う危険があります。常に公式URLであることを確認し、セキュリティ意識を持って利用してください。</p>
-          </div>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">Q：サイトが使えなくなった場合は出金できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>バックアップ体制があります。</div>
-            <p class="desc">メインUIが使用不能になった場合は、お客様ご自身で確実に出金できるよう、別途「バックアップサイト」を完備しております。万一バックアップサイトも利用不可となる極限の状況が発生した場合には、コントラクト情報を皆様に開示し、UIがない状態でも直接コントラクトから出金が可能になります。「資産が凍結される」という事態にはならない仕組みです。</p>
-          </div>
-        </div>
-      </details>
-    </section>
-
-    <!-- 操作動画 -->
-    <section class="category video" id="videos" aria-label="操作動画">
+    <section class="category" id="videos" aria-label="操作動画">
       <div class="cat-head"><span class="dot"></span>操作動画</div>
-
       <details>
         <summary><span class="chev"></span><span class="qtext">デポジット・出金</span></summary>
         <div class="content">
-          <a href="https://youtu.be/9QZGMklnK58" target="_blank" rel="noopener noreferrer">
-            https://youtu.be/9QZGMklnK58
-          </a>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">UNISWAP上の資金確認・収益確認</span></summary>
-        <div class="content">
-          <a href="https://youtu.be/EMX84wyoS5M" target="_blank" rel="noopener noreferrer">
-            https://youtu.be/EMX84wyoS5M
-          </a>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">スワップ・流動性への追加方法</span></summary>
-        <div class="content">
-          <a href="https://youtu.be/3PRncZv4PrU?si=Hj_WFYgA-STVOjXu" target="_blank" rel="noopener noreferrer">
-            https://youtu.be/3PRncZv4PrU?si=Hj_WFYgA-STVOjXu
-          </a>
-        </div>
-      </details>
-
-      <details>
-        <summary><span class="chev"></span><span class="qtext">BOTガス代の補充と管理</span></summary>
-        <div class="content">
-          <a href="https://youtu.be/zH7WdZCA3uY" target="_blank" rel="noopener noreferrer">
-            https://youtu.be/zH7WdZCA3uY
-          </a>
+          <a href="https://youtu.be/9QZGMklnK58" target="_blank" rel="noopener noreferrer">https://youtu.be/9QZGMklnK58</a>
         </div>
       </details>
     </section>
