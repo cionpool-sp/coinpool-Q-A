@@ -4,8 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoinPool よくある質問 Q&A</title>
-  <meta name="description" content="CoinPool よくある質問（Q&A）" />
-
   <style>
     :root{
       --bg:#0b1320;
@@ -51,7 +49,7 @@
       font-size:13px;
     }
 
-    /* ===== 上部ナビ：6項目すべて元の青系で統一 ===== */
+    /* ===== ナビゲーション：全項目を青系に統一 ===== */
     .top-nav{
       margin:16px 0 22px;
       padding:10px;
@@ -89,16 +87,11 @@
     }
 
     @media (max-width: 720px){
-      .nav-grid{
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-      .nav-grid a{
-        font-size:12px;
-        padding:10px 8px;
-      }
+      .nav-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .nav-grid a{ font-size:12px; padding:10px 8px; }
     }
 
-    /* セクションデザイン：注意喚起も共通の青系へ */
+    /* セクションデザイン */
     .category{
       margin-top:18px;
       border:1px solid var(--border);
@@ -168,8 +161,7 @@
     .short{ margin:6px 0 8px; color: var(--accent); font-weight:900; font-size:13px; }
     .desc{ margin:0; color:var(--muted); white-space:pre-wrap; }
     a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    footer{ text-align:center; color:rgba(183,196,214,.75); font-size:12px; margin-top:18px; }
+    footer{ text-align:center; color:rgba(183,196,214,.75); font-size:12px; margin-top:30px; }
   </style>
 </head>
 
@@ -177,7 +169,7 @@
   <div class="wrap">
     <header>
       <h1>よくある質問 Q&amp;A</h1>
-      <p class="sub">カテゴリ別にまとめています（注意喚起 → 初心者向け → 操作 → トラブル → セキュリティ → 操作動画）</p>
+      <p class="sub">カテゴリ別にまとめています</p>
     </header>
 
     <nav class="top-nav">
@@ -198,7 +190,7 @@
         <div class="content">
           <div class="qa">
             <div class="short"><span class="label a">A：</span>身に覚えのないトークンは「触らない・承認しない・スワップしない」を徹底してください。</div>
-            <p class="desc">現在、コインプール上において、身に覚えのない不審なトークン（いわゆるスキャムトークン）が表示される事例が確認されています。
+            <p class="desc">現在、コインプール上において、不審なトークンが表示される事例が確認されています。
 
 ■絶対に行わないでください
 ・承認（Approve）
@@ -206,22 +198,9 @@
 ・リンクのクリック
 ・詳細確認のための接続操作
 
-不審なトークンを承認してしまうと、ウォレット資産へのアクセス権を与えてしまう可能性があり、ハッキング被害につながるリスクがあります。
+不審なトークンを承認してしまうと、ウォレット資産へのアクセス権を与えてしまう可能性があり、ハッキング被害につながるリスクがあります。表示されているだけでは原則問題ありません。危険なのは「操作した場合」です。
 
-表示されているだけでは原則問題ありません。
-危険なのは「操作した場合」です。
-
-■現在の対応について
-運営側で順次、不審トークンの表示削除対応を進めております。
-該当トークンについては、触らずそのままお待ちください。
-
-■今後について
-今後も、身に覚えのないトークンが送付・表示された場合は、
-必ず「触らない」「承認しない」「スワップしない」を徹底してください。
-
-メインウォレット、サブアドレスを問わず同様です。
-
-安全確保のため、今一度ウォレット管理の徹底をお願いいたします。</p>
+運営側で順次、不審トークンの表示削除対応を進めております。触らずそのままお待ちください。</p>
           </div>
         </div>
       </details>
@@ -231,48 +210,23 @@
       <div class="cat-head"><span class="dot"></span>初心者向け</div>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：CoinPoolは資金を預ける仕組みですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>いいえ、資金を誰かに預ける仕組みではありません。</div>
-            <p class="desc">CoinPoolは分散型取引所（DEX）の仕組みを利用した運用サービスです。資金は常にご自身のウォレット内にあり、CoinPoolや運営が資金を預かることはありません。ウォレットを接続し、流動性提供を行うことで、DEX上で発生する取引手数料収益を得る仕組みです。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>いいえ、資金を誰かに預ける仕組みではありません。</div><p class="desc">CoinPoolは分散型取引所（DEX）の仕組みを利用した運用サービスです。資金は常にご自身のウォレット内にあり、CoinPoolや運営が資金を預かることはありません。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：なぜ高い利回りが出るのですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>DEX特有の手数料分配と集中流動性運用を活用しているためです。</div>
-            <p class="desc">DEXでは通貨交換のたびに手数料が発生し、それが流動性提供者に分配されます。CoinPoolでは取引が活発な価格帯に資金を集中させ、自動リバランスを行うことで効率的に手数料を獲得します。さらに再投資により複利運用も可能です。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>DEX特有の手数料分配と集中流動性運用を活用しているためです。</div><p class="desc">取引が活発な価格帯に資金を集中させ、自動リバランスを行うことで効率的に手数料を獲得します。さらに再投資により複利運用も可能です。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：インパーマネントロスとは何ですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>価格変動によって資産価値が目減りする可能性がある現象です。</div>
-            <p class="desc">流動性提供特有の仕組みで、価格が大きく動くとプール内の通貨比率が変動します。ただし、獲得手数料がその影響を上回ることで、トータルでのプラスを目指す運用となります。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>価格変動によって資産価値が目減りする可能性がある現象です。</div><p class="desc">流動性提供特有の仕組みで、価格が大きく動くとプール内の通貨比率が変動します。ただし、獲得手数料がその影響を上回ることで、トータルでのプラスを目指します。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：参加者が増えたら報酬は減りますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>直接的な影響はありません。</div>
-            <p class="desc">プール規模が拡大すると分配比率は変動しますが、取引量自体が増えれば収益も増加します。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>直接的な影響はありません。</div><p class="desc">プール規模が拡大すると分配比率は変動しますが、取引量自体が増えれば収益も増加します。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：開始時より資金が減っています。</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>暗号資産の価格変動による影響です。</div>
-            <p class="desc">基準通貨自体の価格が下落すると、評価額が減少する場合があります。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>暗号資産の価格変動による影響です。</div><p class="desc">基準通貨自体の価格が下落すると、評価額が減少する場合があります。</p></div></div>
       </details>
     </section>
 
@@ -280,93 +234,41 @@
       <div class="cat-head"><span class="dot"></span>操作・運用</div>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：途中でやめることはできますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>はい、いつでも可能です。</div>
-            <p class="desc">ロック期間や解除手数料はありません。流動性提供を解除し、ご自身のウォレットへ戻すことが可能です。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>はい、いつでも可能です。</div><p class="desc">ロック期間や解除手数料はありません。流動性提供を解除し、ご自身のウォレットへ戻すことが可能です。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：単利と複利は変更できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>変更可能です。</div>
-            <p class="desc">単利は収益を払い出し、複利は収益を再投資します。設定画面から切り替えが可能です。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>変更可能です。</div><p class="desc">単利は収益を払い出し、複利は収益を再投資します。設定画面から切り替えが可能です。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：追加はどのようにすればいいですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>メインからサブへデポジットし、サブから流動性を追加します。</div>
-            <p class="desc">ログイン後、メインからサブへETHをデポジットし、「私の流動性」から追加操作を行います。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>メインからサブへデポジットし、サブから流動性を追加します。</div><p class="desc">ログイン後、メインからサブへETHをデポジットし、「私の流動性」から追加操作を行います。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：収益はどこから見ればいいですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>「収益概要」と「私の流動性」から確認できます。</div>
-            <p class="desc">管理画面にて現在の収益状況を確認できます。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>「収益概要」と「私の流動性」から確認できます。</div><p class="desc">管理画面にて現在の収益状況を確認できます。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：LPは自分で組めますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>可能です。</div>
-            <p class="desc">すべての操作をご自身で行うこともできます。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>可能です。</div><p class="desc">すべての操作をご自身で行うこともできます。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：対応チェーンは何がありますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>主要なブロックチェーンに対応しています。</div>
-            <p class="desc">Ethereum、Optimism、Base、Arbitrum、BNB Chain、Solanaに対応しています。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>主要なブロックチェーンに対応しています。</div><p class="desc">Ethereum、Optimism、Base、Arbitrum、BNB Chain、Solanaに対応しています。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：サブアカウントとは何ですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>運用専用のスマートコントラクトアドレスです。</div>
-            <p class="desc">サブアカウントは秘密鍵を持たないコントラクト型アドレスです。メインオーナー以外に資産移動はできない構造です。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>運用専用のスマートコントラクトアドレスです。</div><p class="desc">サブアカウントは秘密鍵を持たないコントラクト型アドレスです。メインオーナー以外に資産移動はできない構造です。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：単利の場合、手数料はどこに入りますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>接続しているウォレットに入ります。</div>
-            <p class="desc">回収された手数料はUSDCでウォレットへ送付されます。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>接続しているウォレットに入ります。</div><p class="desc">回収された手数料はUSDCでウォレットへ送付されます。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：携帯からログインしたいが方法が分からない</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>モバイル（スマホ、タブレット）は、下記手順で操作をお願い致します。</div>
-            <p class="desc">【操作手順】
-①下記モバイル版専用リンクを外部ブラウザ（safari、chrome）に貼り付けてください。
-https://mobile.coinpool.app/
-②貼り付け後→ウォレット接続
-③allwallet 選択
-④metamask選択→接続
-⑤coinpoolに戻り同意
-⑥metamaskで確定
-⑦coinpoolに戻る
-これで完了です。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>モバイルは下記手順で操作をお願い致します。</div><p class="desc">①専用リンク（https://mobile.coinpool.app/）を外部ブラウザに貼り付け
+②ウォレット接続 → allwallet → metamask 選択
+③同意・確定操作を行い完了です。</p></div></div>
       </details>
     </section>
 
@@ -374,66 +276,31 @@ https://mobile.coinpool.app/
       <div class="cat-head"><span class="dot"></span>トラブル・確認事項</div>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：手数料が入ってこないのですが？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>リバランスや最低金額条件の影響です。</div>
-            <p class="desc">回収時にリバランスが発生した場合は流動性へ組み込まれます。その為、ウォレットに着金する金額と開きがあります。2ドル未満の場合は翌日に繰り越されます。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>リバランスや最低金額条件の影響です。</div><p class="desc">リバランス発生時は流動性へ組み込まれます。その為、ウォレットに着金する金額と開きがあります。2ドル未満の場合は翌日に繰り越されます。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：今朝の収益が少ないです。</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>相場状況やリバランスの影響です。</div>
-            <p class="desc">市場状況やレンジ外移動により日々の収益は変動します。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>相場状況やリバランスの影響です。</div><p class="desc">市場状況やレンジ外移動により日々の収益は変動します。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：リバランスはいつ起きますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>レンジ外状態が一定時間続いた場合です。</div>
-            <p class="desc">24時間監視により必要と判断されたタイミングで実行されます。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>レンジ外状態が一定時間続いた場合です。</div><p class="desc">24時間監視により必要と判断されたタイミングで実行されます。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：ログインできません。</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>環境をご確認ください。</div>
-            <p class="desc">スマホの場合はSafariやChromeなどのブラウザをご利用ください。また他のチェーンが干渉していると接続できない場合があります。PCの場合は、アドレスが正しいか確認してください。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>環境をご確認ください。</div><p class="desc">スマホはSafariやChromeを利用してください。PCはアドレスが正しいか確認してください。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：画面に何も表示されません。</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>表示設定をご確認ください。</div>
-            <p class="desc">①右上の表示が「サブアカウント」になっているか。②チェーンが「BASE」になっているか。この2点が揃っていないと、情報が表示されません。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>表示設定をご確認ください。</div><p class="desc">①右上が「サブアカウント」か、②チェーンが「BASE」かをご確認ください。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：スマホから操作できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>操作はできません。</div>
-            <p class="desc">スマホおよびiPad等のタブレットは「モバイル」に分類され、モバイル版では「収益概要」の確認のみで、操作はできません。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>操作はできません。</div><p class="desc">モバイル版は「収益概要」の確認のみで、操作はできません。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：外出先でスマホ1台で設定できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>初回設定（Zoom）の際は注意が必要です。</div>
-            <p class="desc">スマホ1台でZoom通話とウォレット操作を同時に行うことはできません。外からZoom参加される場合は、端末① Zoom用／端末② ウォレット操作用 の2台あるとスムーズです。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>初回設定時は注意が必要です。</div><p class="desc">Zoom用と操作用の2台あるとスムーズです。</p></div></div>
       </details>
     </section>
 
@@ -441,59 +308,24 @@ https://mobile.coinpool.app/
       <div class="cat-head"><span class="dot"></span>セキュリティ</div>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：運営やオペレーターが勝手に出金できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>できません。</div>
-            <p class="desc">出金先は固定されており、第三者による変更はできません。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>できません。</div><p class="desc">出金先は固定されており、第三者による変更はできません。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：MetaMaskは安全ですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>ウォレット自体は安全ですが、管理が重要です。</div>
-            <p class="desc">秘密鍵やシードフレーズの管理を徹底してください。偽サイトに接続したり、秘密鍵を他人に教えると資産を失う危険があります。常に公式URLであることを確認し、セキュリティ意識を持って利用してください。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>管理が重要です。</div><p class="desc">秘密鍵やシードフレーズの管理を徹底してください。偽サイト等には絶対接続しないでください。</p></div></div>
       </details>
       <details>
         <summary><span class="chev"></span><span class="qtext">Q：サイトが使えなくなった場合は出金できますか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>バックアップ体制があります。</div>
-            <p class="desc">メインUIが使用不能になった場合は、お客様ご自身で確実に出金できるよう、別途「バックアップサイト」を完備しております。万一バックアップサイトも利用不可となる極限の状況が発生した場合には、コントラクト情報を皆様に開示し、UIがない状態でも直接コントラクトから出金が可能になります。</p>
-          </div>
-        </div>
+        <div class="content"><div class="qa"><div class="short"><span class="label a">A：</span>バックアップ体制があります。</div><p class="desc">別途「バックアップサイト」を完備しており、直接コントラクトから出金も可能です。</p></div></div>
       </details>
     </section>
 
     <section class="category" id="videos">
       <div class="cat-head"><span class="dot"></span>操作動画</div>
-      <details>
-        <summary><span class="chev"></span><span class="qtext">デポジット・出金</span></summary>
-        <div class="content">
-          <a href="https://youtu.be/9QZGMklnK58" target="_blank">https://youtu.be/9QZGMklnK58</a>
-        </div>
-      </details>
-      <details>
-        <summary><span class="chev"></span><span class="qtext">UNISWAP上の資金確認・収益確認</span></summary>
-        <div class="content">
-          <a href="https://youtu.be/EMX84wyoS5M" target="_blank">https://youtu.be/EMX84wyoS5M</a>
-        </div>
-      </details>
-      <details>
-        <summary><span class="chev"></span><span class="qtext">スワップ・流動性への追加方法</span></summary>
-        <div class="content">
-          <a href="https://youtu.be/3PRncZv4PrU" target="_blank">https://youtu.be/3PRncZv4PrU</a>
-        </div>
-      </details>
-      <details>
-        <summary><span class="chev"></span><span class="qtext">BOTガス代の補充と管理</span></summary>
-        <div class="content">
-          <a href="https://youtu.be/zH7WdZCA3uY" target="_blank">https://youtu.be/zH7WdZCA3uY</a>
-        </div>
-      </details>
+      <details><summary><span class="chev"></span>デポジット・出金</summary><div class="content"><a href="https://youtu.be/9QZGMklnK58" target="_blank">https://youtu.be/9QZGMklnK58</a></div></details>
+      <details><summary><span class="chev"></span>UNISWAP上の資金確認・収益確認</summary><div class="content"><a href="https://youtu.be/EMX84wyoS5M" target="_blank">https://youtu.be/EMX84wyoS5M</a></div></details>
+      <details><summary><span class="chev"></span>スワップ・流動性への追加方法</summary><div class="content"><a href="https://youtu.be/3PRncZv4PrU" target="_blank">https://youtu.be/3PRncZv4PrU</a></div></details>
+      <details><summary><span class="chev"></span>BOTガス代の補充と管理</summary><div class="content"><a href="https://youtu.be/zH7WdZCA3uY" target="_blank">https://youtu.be/zH7WdZCA3uY</a></div></details>
     </section>
 
     <footer>© CoinPool / Q&amp;A</footer>
