@@ -4,8 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoinPool よくある質問 Q&A</title>
-  <meta name="description" content="CoinPool よくある質問（Q&A）" />
-
   <style>
     :root{
       --bg:#0b1320;
@@ -18,10 +16,6 @@
       --shadow: 0 10px 28px rgba(0,0,0,.35);
       --radius:14px;
       --max: 920px;
-
-      /* ナビ用カラー：すべて青系に統一 */
-      --warn:var(--accent);
-      --video:var(--accent);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;}
@@ -55,7 +49,7 @@
       font-size:13px;
     }
 
-    /* ===== 上部：固定表示ナビ（6項目すべて青系統一） ===== */
+    /* ===== ナビゲーション：全項目青系で統一 ===== */
     .top-nav{
       margin:16px 0 22px;
       padding:10px;
@@ -83,7 +77,7 @@
       border:1px solid rgba(83,182,255,.22);
       background:rgba(83,182,255,.10);
       color:var(--accent);
-      transition: transform .18s ease, background .18s ease, border-color .18s ease, filter .18s ease;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
       min-height:40px;
     }
     .nav-grid a:hover{
@@ -92,19 +86,12 @@
       border-color:rgba(83,182,255,.35);
     }
 
-    /* スマホ表示：2行×3列 */
     @media (max-width: 720px){
-      .nav-grid{
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-      .nav-grid a{
-        font-size:12px;
-        padding:10px 8px;
-        border-radius:12px;
-      }
+      .nav-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .nav-grid a{ font-size:12px; padding:10px 8px; }
     }
 
-    /* セクション */
+    /* セクション共通デザイン */
     .category{
       margin-top:18px;
       border:1px solid var(--border);
@@ -148,32 +135,20 @@
       font-weight:800;
       font-size:14px;
     }
-    summary::-webkit-details-marker{display:none;}
-
     .chev{
       margin-top:3px;
       width:0; height:0;
       border-left:6px solid var(--muted);
       border-top:5px solid transparent;
       border-bottom:5px solid transparent;
-      opacity:.9;
-      transition: transform .18s ease, opacity .18s ease;
+      transition: transform .18s ease;
       flex: 0 0 auto;
     }
     details[open] .chev{
       transform: rotate(90deg);
-      opacity:1;
       border-left-color: var(--accent);
     }
-
-    .qtext{flex:1;}
-
-    .content{
-      padding:0 14px 14px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
+    .content{ padding:0 14px 14px; color:var(--muted); font-size:13px; }
     .qa{
       background: rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.06);
@@ -181,37 +156,13 @@
       padding:12px 12px;
       margin-top:10px;
     }
-    .label{
-      display:inline-block;
-      font-weight:900;
-      letter-spacing:.2px;
-      margin-right:6px;
-    }
-    .label.q{color:var(--text);}
-    .label.a{color:var(--accent);}
-    .short{
-      margin:6px 0 8px;
-      color: var(--accent);
-      font-weight:900;
-      font-size:13px;
-    }
-    .desc{
-      margin:0;
-      color:var(--muted);
-      white-space:pre-wrap;
-    }
-
+    .label.a{ color:var(--accent); font-weight:900; margin-right:6px; }
+    .short{ margin:6px 0 8px; color: var(--accent); font-weight:900; }
+    .desc{ margin:0; white-space:pre-wrap; }
     a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    footer{
-      text-align:center;
-      color:rgba(183,196,214,.75);
-      font-size:12px;
-      margin-top:18px;
-    }
+    footer{ text-align:center; color:rgba(183,196,214,.75); font-size:12px; margin-top:30px; }
   </style>
 </head>
-
 <body>
   <div class="wrap">
     <header>
@@ -219,7 +170,7 @@
       <p class="sub">カテゴリ別にまとめています</p>
     </header>
 
-    <nav class="top-nav" aria-label="カテゴリ一覧">
+    <nav class="top-nav">
       <div class="nav-grid">
         <a href="#warn">注意喚起（必読）</a>
         <a href="#beginner">初心者向け</a>
@@ -230,69 +181,76 @@
       </div>
     </nav>
 
-    <section class="category" id="warn" aria-label="注意喚起（必読）">
+    <section class="category" id="warn">
       <div class="cat-head"><span class="dot"></span>注意喚起（必読）</div>
-
-      <details open>
-        <summary><span class="chev"></span><span class="qtext">【重要】不審なトークンに関する注意喚起</span></summary>
+      <details>
+        <summary><span class="chev"></span>【重要】不審なトークンに関する注意喚起</summary>
         <div class="content">
           <div class="qa">
             <div class="short"><span class="label a">A：</span>身に覚えのないトークンは「触らない・承認しない・スワップしない」を徹底してください。</div>
-            <p class="desc">現在、コインプール上において、身に覚えのない不審なトークン（いわゆるスキャムトークン）が表示される事例が確認されています。
-
-■絶対に行わないでください
-・承認（Approve）
-・スワップ
-・リンクのクリック
-・詳細確認のための接続操作
-
-不審なトークンを承認してしまうと、ウォレット資産へのアクセス権を与えてしまう可能性があり、ハッキング被害につながるリスクがあります。
-
-表示されているだけでは原則問題ありません。
-危険なのは「操作した場合」です。
-
-■現在の対応について
-運営側で順次、不審トークンの表示削除対応を進めております。
-該当トークンについては、触らずそのままお待ちください。
-
-■今後について
-今後も、身に覚えのないトークンが送付・表示された場合は、
-必ず「触らない」「承認しない」「スワップしない」を徹底してください。
-
-メインウォレット、サブアドレスを問わず同様です。
-
-安全確保のため、今一度ウォレット管理の徹底をお願いいたします。</p>
+            <p class="desc">不審なトークンを承認すると、資産へのアクセス権を与えてしまうリスクがあります。表示されているだけでは問題ありません。操作をしないようご注意ください。</p>
           </div>
         </div>
       </details>
     </section>
 
-    <section class="category" id="beginner" aria-label="初心者向け">
+    <section class="category" id="beginner">
       <div class="cat-head"><span class="dot"></span>初心者向け</div>
-      <details open>
-        <summary><span class="chev"></span><span class="qtext">Q：CoinPoolは資金を預ける仕組みですか？</span></summary>
-        <div class="content">
-          <div class="qa">
-            <div class="short"><span class="label a">A：</span>いいえ、資金を誰かに預ける仕組みではありません。</div>
-            <p class="desc">CoinPoolは分散型取引所（DEX）の仕組みを利用した運用サービスです。資金は常にご自身のウォレット内にあり、CoinPoolや運営が資金を預かることはありません。</p>
-          </div>
-        </div>
+      <details>
+        <summary><span class="chev"></span>Q：CoinPoolは資金を預ける仕組みですか？</summary>
+        <div class="content"><div class="qa"><p class="desc">いいえ。資金は常にご自身のウォレット内にあり、DEXの仕組みを利用して運用します。</p></div></div>
       </details>
-      </section>
+      <details>
+        <summary><span class="chev"></span>Q：なぜ高い利回りが出るのですか？</summary>
+        <div class="content"><div class="qa"><p class="desc">集中流動性運用と自動リバランスにより、効率的に取引手数料を獲得できるからです。</p></div></div>
+      </details>
+      <details>
+        <summary><span class="chev"></span>Q：インパーマネントロスとは何ですか？</summary>
+        <div class="content"><div class="qa"><p class="desc">価格変動によりプール内の資産比率が変わり、価値が目減りする現象です。</p></div></div>
+      </details>
+    </section>
 
-    <section class="category" id="videos" aria-label="操作動画">
+    <section class="category" id="operation">
+      <div class="cat-head"><span class="dot"></span>操作・運用</div>
+      <details>
+        <summary><span class="chev"></span>Q：途中でやめることはできますか？</summary>
+        <div class="content"><div class="qa"><p class="desc">はい、いつでも可能です。ロック期間や解除手数料はありません。</p></div></div>
+      </details>
+      <details>
+        <summary><span class="chev"></span>Q：携帯からログインしたいが方法が分からない</summary>
+        <div class="content"><div class="qa"><p class="desc">モバイル版専用リンク（https://mobile.coinpool.app/）をブラウザに貼り付け、allwallet経由で接続してください。</p></div></div>
+      </details>
+    </section>
+
+    <section class="category" id="trouble">
+      <div class="cat-head"><span class="dot"></span>トラブル・確認事項</div>
+      <details>
+        <summary><span class="chev"></span>Q：画面に何も表示されません。</summary>
+        <div class="content"><div class="qa"><p class="desc">右上の表示が「サブアカウント」、チェーンが「BASE」になっているかご確認ください。</p></div></div>
+      </details>
+    </section>
+
+    <section class="category" id="security">
+      <div class="cat-head"><span class="dot"></span>セキュリティ</div>
+      <details>
+        <summary><span class="chev"></span>Q：MetaMaskは安全ですか？</summary>
+        <div class="content"><div class="qa"><p class="desc">ウォレット自体は安全ですが、秘密鍵やシードフレーズの管理は自己責任で徹底してください。</p></div></div>
+      </details>
+    </section>
+
+    <section class="category" id="videos">
       <div class="cat-head"><span class="dot"></span>操作動画</div>
       <details>
-        <summary><span class="chev"></span><span class="qtext">デポジット・出金</span></summary>
-        <div class="content">
-          <a href="https://youtu.be/9QZGMklnK58" target="_blank" rel="noopener noreferrer">https://youtu.be/9QZGMklnK58</a>
-        </div>
+        <summary><span class="chev"></span>デポジット・出金</summary>
+        <div class="content"><a href="https://youtu.be/9QZGMklnK58" target="_blank">https://youtu.be/9QZGMklnK58</a></div>
+      </details>
+      <details>
+        <summary><span class="chev"></span>スワップ・流動性への追加方法</summary>
+        <div class="content"><a href="https://youtu.be/3PRncZv4PrU" target="_blank">https://youtu.be/3PRncZv4PrU</a></div>
       </details>
     </section>
 
-    <footer>
-      © CoinPool / Q&amp;A
-    </footer>
+    <footer>© CoinPool / Q&amp;A</footer>
   </div>
 </body>
 </html>
